@@ -1,7 +1,11 @@
-import Image from "next/image";
-import namao from "@/public/images/Screenshot 2024-03-15 235956.png"
+"use client";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+import _ from "lodash";
 
 export default function Home() {
+    const [isVisible, setVisible] = useState(false);
+
     return (
         <main className="relative h-screen">
             {/* <Image 
@@ -15,6 +19,17 @@ export default function Home() {
             /> */}
 
             <h1>Hello</h1>
+            <button onClick={()=>{
+                const users = [
+                    {name: "C"},
+                    {name: "B"},
+                    {name: "D"}
+                ]
+
+                const sorted = _.orderBy(users, ["name"])
+                console.log(sorted)
+            }}>Show</button>
+            
         </main>
     );
 }
